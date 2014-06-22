@@ -1,0 +1,23 @@
+﻿@model List<JustEat.WebSite.ViewModels.ProductViewModel>
+<h5>Products</h5>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Synonym</td>
+            <td>Price</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Synonym</td>
+                <td>@item.Price.ToString("F")</td>
+                <td>@item.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>

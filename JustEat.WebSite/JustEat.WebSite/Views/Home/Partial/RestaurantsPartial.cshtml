@@ -1,0 +1,30 @@
+﻿@model JustEat.WebSite.ViewModels.RestaurantsViewModel
+<h4>Restaurants</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Logo</td>
+            <td>Name</td>
+            <td>Rating</td>
+            <td>Url</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Restaurants)
+        {
+            <tr>
+                <td><img src="@item.Logo" /></td>
+                <td>@item.Name</td>
+                <td>@item.AvarageRating.ToString("F")</td>
+                <td><a href="@item.Url">@item.Url</a></td>
+               <td><a href="#" class="show-products" data-Url="@Url.Action("Products", "Home", new { restaurantId=item.Id })">  Show Products</a></td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

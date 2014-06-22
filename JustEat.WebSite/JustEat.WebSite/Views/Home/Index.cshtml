@@ -1,0 +1,24 @@
+﻿@model JustEat.WebSite.ViewModels.RestaurantsViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    @using (Html.BeginForm("GetRestaurants","Home", FormMethod.Get, new { id="form-restaurants" }))
+    {
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Outcode, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Outcode)
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Get restaurants"/>
+        </div>
+    }
+    <div id="restaurants-table">
+
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/pages/home.js")"></script>
+}
